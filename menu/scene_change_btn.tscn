@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://l32egh6is3qw"]
+
+[ext_resource type="Script" path="res://menu/scene_change_btn.gd" id="1_tmk5e"]
+
+[node name="Button" type="Button"]
+text = "horde survival"
+script = ExtResource("1_tmk5e")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
