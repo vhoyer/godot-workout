@@ -37,10 +37,10 @@ func populate_grid() -> void:
 	dir.list_dir_end()
 	pass
 
-func add_game(path, name):
+func add_game(path, title):
 	var btn = SCENE_BTN.instantiate()
 	btn.scene_path = path
-	btn.text = name.replace('_', ' ')
+	btn.text = title.replace('_', ' ')
 	grid.add_child(btn)
 "
 

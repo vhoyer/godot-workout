@@ -394,8 +394,9 @@ script = ExtResource("1_xnum0")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -32)
 sprite_frames = SubResource("SpriteFrames_tkllk")
-animation = &"walk"
-frame_progress = 0.329644
+animation = &"attack-side-one"
+autoplay = "idle"
+frame_progress = 0.33016
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, -16)
