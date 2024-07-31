@@ -6,12 +6,18 @@ var combo = 0
 
 @onready var animation_tree = $AnimationTree
 @onready var combo_timer = $ComboTimer
+@onready var animation_player = $AnimationPlayer
+
+func get_speed():
+	if is_attacking():
+		return speed / 4
+	return speed
 
 func _physics_process(delta):
 	process_combo(delta)
 	
 	direction = Input.get_vector("left", "right", "up", "down")
-	velocity = direction * speed
+	velocity = direction * get_speed()
 	move_and_slide()
 
 func process_combo(delta):
@@ -25,11 +31,15 @@ func process_combo(delta):
 func reset_combo():
 	combo = 0
 
+func is_attacking():
+	return combo > 0 || animation_player.is_playing()
+
 func _process(delta):
 	if direction.x != 0:
 		animation_tree.set("parameters/Flip/blend_position", direction.x)
-	animation_tree.set("parameters/Animation/attack_1/blend_position", direction.y)
-	animation_tree.set("parameters/Animation/attack_2/blend_position", direction.y)
+	if direction.y != 0:
+		animation_tree.set("parameters/Animation/attack_1/blend_position", direction.y)
+		animation_tree.set("parameters/Animation/attack_2/blend_position", direction.y)
 	animation_tree.set("parameters/Animation/conditions/walking", velocity.length() > 0)
 	animation_tree.set("parameters/Animation/conditions/not_walking", velocity.length() == 0)
 	animation_tree.set("parameters/Animation/conditions/combo_1", combo >= 1)

@@ -148,23 +148,6 @@ tracks/0/keys = {
 "values": [0, 1, 2, 3, 4]
 }
 
-[sub_resource type="Animation" id="Animation_hb4h1"]
-resource_name = "walk_right"
-length = 0.6
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [6, 7, 8, 9, 10, 11]
-}
-
 [sub_resource type="Animation" id="Animation_4e2ss"]
 resource_name = "reset_combo"
 length = 0.001
@@ -181,6 +164,23 @@ tracks/0/keys = {
 "args": [],
 "method": &"reset_combo"
 }]
+}
+
+[sub_resource type="Animation" id="Animation_hb4h1"]
+resource_name = "walk_right"
+length = 0.6
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [6, 7, 8, 9, 10, 11]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_egy01"]
@@ -319,7 +319,7 @@ blend_point_1/pos = 1.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_7272k"]
-graph_offset = Vector2(201, 150)
+graph_offset = Vector2(627, 24)
 nodes/Animation/node = SubResource("AnimationNodeStateMachine_r38ch")
 nodes/Animation/position = Vector2(700, 40)
 nodes/AnimationAndFlip/node = SubResource("AnimationNodeAdd2_8jvwb")
@@ -341,7 +341,7 @@ texture = ExtResource("2_ix7cd")
 flip_h = true
 hframes = 6
 vframes = 8
-frame = 4
+frame = 3
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
