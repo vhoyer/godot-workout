@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dmlln0q8gu7ov"]
+[gd_scene load_steps=6 format=3 uid="uid://dmlln0q8gu7ov"]
 
 [ext_resource type="PackedScene" uid="uid://ddjdxq7gmxnlk" path="res://games/horde_survivor/components/player.tscn" id="1_qs6kp"]
 [ext_resource type="Texture2D" uid="uid://d37s7j7oinm4o" path="res://assets/Tiny Swords (Update 010)/Terrain/Ground/Tilemap_Flat.png" id="1_rfeio"]
+[ext_resource type="PackedScene" uid="uid://suf5ltb3ejkx" path="res://games/horde_survivor/components/enemy.tscn" id="3_w6fbj"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2vyqf"]
 texture = ExtResource("1_rfeio")
@@ -219,3 +220,5 @@ layer_0/tile_data = PackedInt32Array(0, 65536, 1, 1, 65536, 1, 65537, 65536, 1, 
 
 [node name="Player" parent="." instance=ExtResource("1_qs6kp")]
 position = Vector2(375, 167)
+
+[node name="Enemy" parent="." instance=ExtResource("3_w6fbj")]

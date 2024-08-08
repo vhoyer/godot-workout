@@ -310,7 +310,7 @@ texture = ExtResource("2_ix7cd")
 flip_h = true
 hframes = 6
 vframes = 8
-frame = 3
+frame = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
