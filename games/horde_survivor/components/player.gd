@@ -11,6 +11,8 @@ var state_machine: AnimationNodeStateMachinePlayback
 @onready var combo_timer = $ComboTimer
 
 func _ready():
+	y_sort_enabled = true
+	animation_tree.active = true
 	state_machine = animation_tree.get("parameters/Animation/playback");
 
 func _physics_process(delta):
