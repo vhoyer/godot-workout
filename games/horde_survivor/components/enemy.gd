@@ -4,7 +4,6 @@ extends CharacterBody2D
 var state_machine: AnimationNodeStateMachinePlayback
 
 func _ready():
-	animation_tree.active = true
 	state_machine = animation_tree.get("parameters/Animation/playback");
 
 func _physics_process(_delta):
