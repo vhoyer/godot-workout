@@ -1,6 +1,13 @@
 extends CharacterBody2D
 
-func _physics_process(delta):
+@onready var animation_tree = $AnimationTree
+var state_machine: AnimationNodeStateMachinePlayback
+
+func _ready():
+	animation_tree.active = true
+	state_machine = animation_tree.get("parameters/Animation/playback");
+
+func _physics_process(_delta):
 	# move_and_slide()
 	pass
 
@@ -8,7 +15,7 @@ func drop_loot():
 	pass
 
 func take_damage():
-	queue_free()
+	state_machine.travel("despawn");
 
-func _on_hitbox_area_entered(area):
+func _on_hitbox_area_entered(_area):
 	take_damage()
