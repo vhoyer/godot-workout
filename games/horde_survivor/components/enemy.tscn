@@ -1,8 +1,27 @@
-[gd_scene load_steps=45 format=3 uid="uid://suf5ltb3ejkx"]
+[gd_scene load_steps=53 format=3 uid="uid://suf5ltb3ejkx"]
 
 [ext_resource type="Script" path="res://games/horde_survivor/components/enemy.gd" id="1_0h5jq"]
 [ext_resource type="Texture2D" uid="uid://mlw33abo5x5j" path="res://assets/Tiny Swords (Update 010)/Factions/Goblins/Troops/Torch/Red/Torch_Red.png" id="1_vn7us"]
 [ext_resource type="Texture2D" uid="uid://bfgf10afj5h3w" path="res://assets/Tiny Swords (Update 010)/Factions/Knights/Troops/Dead/Dead.png" id="3_owe68"]
+
+[sub_resource type="Shader" id="Shader_7v2a5"]
+code = "shader_type canvas_item;
+ 
+uniform vec4 flash_color : source_color;
+uniform float flash_value : hint_range(0.0, 1.0, 0.1) = 0;
+ 
+void fragment() {
+    vec4 texture_color = texture(TEXTURE, UV);
+    COLOR = mix(texture_color, flash_color, flash_value);
+    COLOR.a = texture_color.a;
+}
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_r3ts2"]
+resource_local_to_scene = true
+shader = SubResource("Shader_7v2a5")
+shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/flash_value = 0.0
 
 [sub_resource type="Animation" id="Animation_82mfq"]
 length = 0.001
@@ -68,7 +87,7 @@ tracks/4/keys = {
 }
 tracks/5/type = "value"
 tracks/5/imported = false
-tracks/5/enabled = true
+tracks/5/enabled = false
 tracks/5/path = NodePath("Sprite2D:flip_h")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
@@ -126,6 +145,18 @@ tracks/9/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_mh78s"]
 resource_name = "attack_down"
@@ -173,6 +204,34 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [28, 29, 30, 31, 32, 33]
+}
+
+[sub_resource type="Animation" id="Animation_rj405"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [15, 16, 15, 16, 15, 16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:material:shader_parameter/flash_value")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_7ls5i"]
@@ -389,6 +448,7 @@ _data = {
 "attack_down": SubResource("Animation_mh78s"),
 "attack_side": SubResource("Animation_kyqc7"),
 "attack_up": SubResource("Animation_7eubr"),
+"damage": SubResource("Animation_rj405"),
 "death": SubResource("Animation_7ls5i"),
 "despawn": SubResource("Animation_u5wdj"),
 "face_left": SubResource("Animation_1u0fi"),
@@ -417,6 +477,9 @@ blend_point_1/pos = 1.0
 blend_point_2/node = SubResource("AnimationNodeAnimation_d1kae")
 blend_point_2/pos = 0.0
 blend_mode = 1
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_3043f"]
+animation = &"damage"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_rba0c"]
 animation = &"death"
@@ -473,6 +536,16 @@ advance_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mm4jq"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_133vo"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_w6i4s"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_at03x"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_4fjr1"]
 states/End/position = Vector2(671, 100)
 states/RESET/node = SubResource("AnimationNodeAnimation_lhf6f")
@@ -480,6 +553,8 @@ states/RESET/position = Vector2(12, 100)
 states/Start/position = Vector2(-119, 100)
 states/attack/node = SubResource("AnimationNodeBlendSpace1D_rwq3h")
 states/attack/position = Vector2(260, -66)
+states/damage/node = SubResource("AnimationNodeAnimation_3043f")
+states/damage/position = Vector2(12, -9)
 states/death/node = SubResource("AnimationNodeAnimation_rba0c")
 states/death/position = Vector2(502, -9)
 states/despawn/node = SubResource("AnimationNodeAnimation_dawr2")
@@ -488,8 +563,8 @@ states/idle/node = SubResource("AnimationNodeAnimation_sy3gc")
 states/idle/position = Vector2(156, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_nn1de")
 states/walk/position = Vector2(344, 100)
-transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_1hhxt"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_x4rmm"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_flep8"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_an7ru"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_fx6oc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_cgcs6"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_avjgu"), "death", "despawn", SubResource("AnimationNodeStateMachineTransition_wieev"), "despawn", "End", SubResource("AnimationNodeStateMachineTransition_trjlc"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_2p3hf"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_wjwfh"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_tufta"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_ac4e6")]
-graph_offset = Vector2(-504, -103)
+transitions = ["idle", "attack", SubResource("AnimationNodeStateMachineTransition_1hhxt"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_x4rmm"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_flep8"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_an7ru"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_fx6oc"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_cgcs6"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_avjgu"), "death", "despawn", SubResource("AnimationNodeStateMachineTransition_wieev"), "despawn", "End", SubResource("AnimationNodeStateMachineTransition_trjlc"), "idle", "death", SubResource("AnimationNodeStateMachineTransition_2p3hf"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_wjwfh"), "Start", "RESET", SubResource("AnimationNodeStateMachineTransition_tufta"), "RESET", "idle", SubResource("AnimationNodeStateMachineTransition_ac4e6"), "attack", "damage", SubResource("AnimationNodeStateMachineTransition_mm4jq"), "damage", "RESET", SubResource("AnimationNodeStateMachineTransition_133vo"), "idle", "damage", SubResource("AnimationNodeStateMachineTransition_w6i4s"), "walk", "damage", SubResource("AnimationNodeStateMachineTransition_at03x")]
+graph_offset = Vector2(-685, -160)
 
 [sub_resource type="AnimationNodeAdd2" id="AnimationNodeAdd2_d0w8y"]
 
@@ -501,13 +576,13 @@ animation = &"face_right"
 
 [sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_h7g4s"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_b47tj")
-blend_point_0/pos = -1.0
+blend_point_0/pos = 1.0
 blend_point_1/node = SubResource("AnimationNodeAnimation_5c3ex")
-blend_point_1/pos = 1.0
+blend_point_1/pos = -1.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wspmy"]
-graph_offset = Vector2(-752, 0)
+graph_offset = Vector2(-1010, 176)
 nodes/Animation/node = SubResource("AnimationNodeStateMachine_4fjr1")
 nodes/Animation/position = Vector2(-460, 80)
 nodes/AnimationAndFlip/node = SubResource("AnimationNodeAdd2_d0w8y")
@@ -529,6 +604,7 @@ position = Vector2(85, 82)
 script = ExtResource("1_0h5jq")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_r3ts2")
 texture = ExtResource("1_vn7us")
 offset = Vector2(0, -32)
 hframes = 7

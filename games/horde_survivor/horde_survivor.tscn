@@ -26,28 +26,31 @@ y_sort_enabled = true
 position = Vector2(453, 417)
 
 [node name="Enemy" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(415, 834)
+position = Vector2(861, 644)
 
 [node name="Enemy2" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(-359, 272)
+position = Vector2(247, 715)
 
 [node name="Enemy3" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(885, 667)
+position = Vector2(286, 144)
 
 [node name="Enemy4" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(-94, 705)
+position = Vector2(635, 641)
 
 [node name="Enemy5" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(483, 176)
+position = Vector2(5, 420)
 
 [node name="Enemy6" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(990, 513)
+position = Vector2(698, 215)
 
 [node name="Enemy7" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(171, 136)
+position = Vector2(452, 210)
 
 [node name="Enemy8" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(99, 401)
+position = Vector2(148, 271)
 
 [node name="Enemy9" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(886, 272)
+position = Vector2(778, 444)
+
+[node name="Enemy10" parent="Entities" instance=ExtResource("3_w6fbj")]
+position = Vector2(175, 545)
