@@ -3,14 +3,28 @@ extends CharacterBody2D
 @onready var animation_tree = $AnimationTree
 var state_machine: AnimationNodeStateMachinePlayback
 
-@export var HP = 2
+@export var HP = 2;
+@export var Speed = 250;
+
+@export_node_path("Node2D") var NodeToFollow;
+@onready var node_to_follow: Node2D = get_node(NodeToFollow);
 
 func _ready():
 	state_machine = animation_tree.get("parameters/Animation/playback");
 
-func _physics_process(_delta):
-	move_and_slide()
+func _physics_process(delta):
 	velocity = lerp(velocity, Vector2.ZERO, 0.1);
+	var current = state_machine.get_current_node()
+	
+	var voluntary_states: Array[String] = ['idle', 'walk'];
+	if (voluntary_states.has(current)):
+		process_movement(delta);
+	
+	move_and_slide();
+
+func process_movement(delta):
+	var direction = node_to_follow.position - self.position;
+	velocity += direction.normalized() * Speed * delta
 	pass
 
 func _process(_delta):

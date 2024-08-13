@@ -26,31 +26,41 @@ y_sort_enabled = true
 position = Vector2(453, 417)
 
 [node name="Enemy" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(861, 644)
+position = Vector2(881, 628)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy2" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(247, 715)
+position = Vector2(740, 693)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy3" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(286, 144)
+position = Vector2(886, 500)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy4" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(635, 641)
+position = Vector2(482, 693)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy5" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(5, 420)
+position = Vector2(241, 583)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy6" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(698, 215)
+position = Vector2(-17, 455)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy7" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(452, 210)
+position = Vector2(443, 105)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy8" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(148, 271)
+position = Vector2(19, 211)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy9" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(778, 444)
+position = Vector2(681, 262)
+NodeToFollow = NodePath("../Player")
 
 [node name="Enemy10" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(175, 545)
+position = Vector2(895, 310)
+NodeToFollow = NodePath("../Player")
