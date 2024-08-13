@@ -583,6 +583,8 @@ node_connections = [&"AnimationAndFlip", 0, &"Animation", &"AnimationAndFlip", 1
 radius = 16.0312
 
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 5
 script = ExtResource("1_xnum0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

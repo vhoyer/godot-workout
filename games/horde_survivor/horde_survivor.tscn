@@ -23,44 +23,44 @@ layer_3/tile_data = PackedInt32Array(-2293807, 65536, 1, -2359343, 65536, 1, -24
 y_sort_enabled = true
 
 [node name="Player" parent="Entities" instance=ExtResource("1_qs6kp")]
-position = Vector2(453, 417)
+position = Vector2(451, 406)
 
 [node name="Enemy" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(881, 628)
+position = Vector2(278, 640)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy2" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(740, 693)
+position = Vector2(733, 352)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy3" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(886, 500)
+position = Vector2(730, 492)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy4" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(482, 693)
+position = Vector2(276, 219)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy5" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(241, 583)
+position = Vector2(451, 673)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy6" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(-17, 455)
+position = Vector2(457, 155)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy7" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(443, 105)
+position = Vector2(155, 353)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy8" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(19, 211)
+position = Vector2(613, 611)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy9" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(681, 262)
+position = Vector2(161, 516)
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy10" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(895, 310)
+position = Vector2(620, 215)
 NodeToFollow = NodePath("../Player")
