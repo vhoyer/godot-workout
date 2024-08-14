@@ -9,6 +9,7 @@ var try_attacking = false;
 
 @export_node_path("Node2D") var NodeToFollow;
 @onready var node_to_follow: Node2D = get_node(NodeToFollow);
+var direction: Vector2;
 
 func _ready():
 	state_machine = animation_tree.get("parameters/Animation/playback");
@@ -28,13 +29,14 @@ func process_movement(delta):
 	if (try_attacking):
 		state_machine.travel("attack");
 	else:
-		var direction = node_to_follow.position - self.position;
+		direction = node_to_follow.position - self.position;
 		velocity += direction.normalized() * Speed * delta
 
 func _process(_delta):
+	var current = state_machine.get_current_node()
 	var not_walking_velocity = 10;
-	if velocity.x > 0:
-		animation_tree.set("parameters/Flip/blend_position", velocity.x)
+	if (direction.x != 0):
+		animation_tree.set("parameters/Flip/blend_position", direction.x)
 	if velocity.length() > not_walking_velocity:
 		animation_tree.set("parameters/Animation/attack/blend_position", velocity.y)
 	animation_tree.set("parameters/Animation/conditions/walking", velocity.length() > not_walking_velocity)

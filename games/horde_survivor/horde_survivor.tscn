@@ -27,40 +27,45 @@ position = Vector2(451, 406)
 
 [node name="Enemy" parent="Entities" instance=ExtResource("3_w6fbj")]
 position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy2" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(733, 352)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy3" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(730, 492)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy4" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(276, 219)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy5" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(451, 673)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy6" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(457, 155)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy7" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(155, 353)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy8" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(613, 611)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")
 
 [node name="Enemy9" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(161, 516)
-NodeToFollow = NodePath("../Player")
-
-[node name="Enemy10" parent="Entities" instance=ExtResource("3_w6fbj")]
-position = Vector2(620, 215)
+position = Vector2(278, 640)
+HP = 10
 NodeToFollow = NodePath("../Player")

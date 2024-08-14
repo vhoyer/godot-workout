@@ -770,7 +770,7 @@ blend_point_1/pos = 1.0
 blend_mode = 1
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_wspmy"]
-graph_offset = Vector2(-1010, 176)
+graph_offset = Vector2(-977, 103)
 nodes/Animation/node = SubResource("AnimationNodeStateMachine_4fjr1")
 nodes/Animation/position = Vector2(-460, 80)
 nodes/AnimationAndFlip/node = SubResource("AnimationNodeAdd2_d0w8y")
@@ -809,7 +809,6 @@ shape = SubResource("CapsuleShape2D_6kmyg")
 material = SubResource("ShaderMaterial_r3ts2")
 texture = ExtResource("1_vn7us")
 offset = Vector2(0, -32)
-flip_h = true
 hframes = 7
 vframes = 5
 
@@ -825,7 +824,7 @@ parameters/Animation/conditions/not_walking = false
 parameters/Animation/conditions/walking = false
 parameters/Animation/attack/blend_position = 0.823678
 parameters/AnimationAndFlip/add_amount = 1.0
-parameters/Flip/blend_position = -0.99916
+parameters/Flip/blend_position = 3.521
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -15)
@@ -840,6 +839,7 @@ origin = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackHitbox"]
 visible = false
+scale = Vector2(-1, 1)
 polygon = PackedVector2Array(44, -84, 39, -52, 47, -47, 52, -34, 49, -17, 29, 11, 3, 17, -15, 15, -37, 8, -32, 1, -37, -8, -52, -3, -56, 9, -52, 19, -39, 30, -25, 35, 14, 35, 47, 14, 52, 5, 62, -32, 65, -64, 55, -81)
 disabled = true
 
