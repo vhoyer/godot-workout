@@ -46,6 +46,7 @@ tracks/2/keys = {
 [sub_resource type="Animation" id="Animation_dy6yd"]
 resource_name = "attack_up"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -98,6 +99,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_pvip7"]
 resource_name = "attack_up_2"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -150,6 +152,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_1fdw2"]
 resource_name = "attack_right"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -202,6 +205,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_6jy6a"]
 resource_name = "attack_right_2"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -254,6 +258,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_oa2xg"]
 resource_name = "attack_down"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -306,6 +311,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_tyx8k"]
 resource_name = "attack_down_2"
 length = 0.6
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -358,6 +364,7 @@ tracks/3/keys = {
 [sub_resource type="Animation" id="Animation_dbex8"]
 resource_name = "face_left"
 length = 0.001
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -386,6 +393,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id="Animation_5fe3e"]
 resource_name = "face_right"
 length = 0.001
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -415,6 +423,7 @@ tracks/1/keys = {
 resource_name = "idle_right"
 length = 0.5
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -432,6 +441,7 @@ tracks/0/keys = {
 resource_name = "walk_right"
 length = 0.6
 loop_mode = 1
+step = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -590,9 +600,9 @@ script = ExtResource("1_xnum0")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ix7cd")
 offset = Vector2(0, -32)
-flip_h = true
 hframes = 6
 vframes = 8
+frame = 6
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -627,7 +637,6 @@ origin = NodePath("..")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AttackHitbox"]
 visible = false
-scale = Vector2(-1, 1)
 polygon = PackedVector2Array(-93, 13, -41, 14, -34, 5, -6, 5, -1, 14, 54, 9, 48, -10, 37, -23, 21, -39, 8, -46, -18, -51, -47, -45, -66, -30, -86, -10)
 disabled = true
 
